@@ -52,7 +52,7 @@ At its most basic level you can initiate the plugin like:
 `````					
 	$(document).ready(function ($) {
 
-    $('#tabs').tabulous({);  
+    $('#tabs').tabulous();  
 
 });
 `````
