@@ -7,23 +7,23 @@ p {
 	margin-bottom: 20px;
 }
 
-#wrapper {
+.wrapper {
 	width: 960px;
 	margin: 0 auto;
 	margin-top: 100px;
 }
-#tabs,#tabs2,#tabs3,#tabs4,#tabs5 {
+.tabs{
 	width: 500px;
 	margin: 0 auto;
 	margin-bottom: 40px;
 }
 
-#tabs li,#tabs2 li,#tabs3 li,#tabs4 li,#tabs5 li {
+.item-tab {
 	float: left;
 	margin-right: 2px;
 }
 
-#tabs li a,#tabs2 li a,#tabs3 li a,#tabs4 li a,#tabs5 li a {
+.link-tab {
 	display: block;
 	padding: 17px 30px;
 	background: #544f6b;
@@ -31,18 +31,18 @@ p {
 	color: #8478B3;
 }
 
-#tabs li a:hover,#tabs2 li a:hover,#tabs3 li a:hover,#tabs4 li a:hover,#tabs5 li a:hover {
+.link-tab:hover{
 	background: rgb(78, 74, 99);
 }
 
-#tabs_container {
+.tabs-container {
 	padding: 40px;
 	overflow: hidden;
 	position: relative;
 	background: white;
 }
 
-#tabs_container div {
+.tabs-container div {
 	margin-right: 40px;
 }
 
@@ -60,7 +60,7 @@ p {
 	transition-delay: .3s;
 }
 
-.make_transist {
+.make-transist {
 	-webkit-transition: all .3s ease-in-out;
 	-moz-transition: all .3s ease-in-out;
 	-o-transition: all .3s ease-in-out;
@@ -195,7 +195,7 @@ p {
 	transform-origin: 50% 50%;
 }
 
-.tabulous_active {
+.tabulous-active {
 	background: white !important;
 	color: #655c89 !important;
 }

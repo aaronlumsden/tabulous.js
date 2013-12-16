@@ -1,7 +1,8 @@
 $(document).ready(function($) {
     
-
-    $('#tabs').tabulous({
+	$('.tabs').tabulous({});
+	
+    $('#tabs1').tabulous({
     	effect: 'scale'
     });
 
@@ -16,25 +17,5 @@ $(document).ready(function($) {
     $('#tabs4').tabulous({
     	effect: 'flip'
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
