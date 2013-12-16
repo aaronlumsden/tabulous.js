@@ -24,20 +24,20 @@ Firstly include jQuery and the tabulous.css and tabulous.js files. Place these b
 ##### Create the tabs
 
 `````
-  <div id="tabs">
+  <div class="tabs">
   	<ul>
-			<li><a href="#tabs-1" title="">Tab 1</a></li>
-			<li><a href="#tabs-2" title="">Tab 2</a></li>
-			<li><a href="#tabs-3" title="">Tab 3</a></li>
+			<li class="item-tab"><a class="link-tab" href="#item-tab-container-1" title="">Tab 1</a></li>
+			<li class="item-tab"><a class="link-tab" href="#item-tab-container-2" title="">Tab 2</a></li>
+			<li class="item-tab"><a class="link-tab" href="#item-tab-container-3" title="">Tab 3</a></li>
 		</ul>
-		<div id="tabs_container">
-			<div id="tabs-1">
+		<div class="tabs-container">
+			<div id="item-tab-container-1">
 				<!--tab content-->
 			</div>
-			<div id="tabs-2">
+			<div id="item-tab-container-2">
 				   <!--tab content-->
 			</div>
-			<div id="tabs-3">
+			<div id="item-tab-container-3">
 				    <!--tab content-->
 			</div>
 		</div><!--End tabs container-->	
@@ -52,7 +52,7 @@ At its most basic level you can initiate the plugin like:
 `````					
 	$(document).ready(function ($) {
 
-    $('#tabs').tabulous();  
+    $('.tabs').tabulous();  
 
 });
 `````
@@ -61,7 +61,7 @@ At its most basic level you can initiate the plugin like:
 If you want to initiate the plugin with options then you can do so like:
 
 `````
-$('#tabs').tabulous({
+$('.tabs').tabulous({
       effect: 'scale'
     });	
 `````
