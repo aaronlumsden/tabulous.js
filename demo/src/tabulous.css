@@ -18,6 +18,10 @@ p {
 	margin-bottom: 40px;
 }
 
+#tabs ul,#tabs2 ul,#tabs3 ul#tabs4 ul,#tabs5 ul {
+	margin-bottom: 40px;
+}
+
 #tabs li,#tabs2 li,#tabs3 li,#tabs4 li,#tabs5 li {
 	float: left;
 	margin-right: 2px;
@@ -37,6 +41,8 @@ p {
 
 #tabs_container {
 	padding: 40px;
+	padding-top: 0;
+	padding-top: 0;
 	overflow: hidden;
 	position: relative;
 	background: white;

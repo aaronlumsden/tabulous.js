@@ -84,7 +84,12 @@ $('#tabs').tabulous({
 									<td>The effect to use for the transition</td>
 									<td>scale / slideLeft / scaleUp / flip</td>
 								</tr>
-							
+							    <tr>
+									<td>mainDiv</td>
+									<td>#tabs_container</td>
+									<td>The ID/class of the tabs container</td>
+									<td></td>
+								</tr>
 
 								
 							</tbody>
