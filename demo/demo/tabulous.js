@@ -27,7 +27,7 @@
 
         init: function() {
 
-            var links = this.$elem.find('a');
+            var links = this.$elem.children('ul').find('a');
             var firstchild = this.$elem.find('li:first-child').find('a');
             var lastchild = this.$elem.find('li:last-child').after('<span class="tabulousclear"></span>');
 
