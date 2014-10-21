@@ -8,7 +8,8 @@
 
     var pluginName = "tabulous",
         defaults = {
-            effect: 'scale'
+            effect: 'scale',
+            target_class: 'tab-content'
         };
 
        // $('<style>body { background-color: red; color: white; }</style>').appendTo('head');
@@ -26,24 +27,24 @@
 
         init: function() {
 
-            var links = this.$elem.find('a');
+            var links = this.$elem.children('ul').find('a');
             var firstchild = this.$elem.find('li:first-child').find('a');
             var lastchild = this.$elem.find('li:last-child').after('<span class="tabulousclear"></span>');
 
             if (this.options.effect == 'scale') {
-             tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hidescale');
+                tab_content = this.$elem.find('.' + this.options.target_class).not(':first').not(':nth-child(1)').addClass('hidescale');
             } else if (this.options.effect == 'slideLeft') {
-                 tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hideleft');
+                tab_content = this.$elem.find('.' + this.options.target_class).not(':first').not(':nth-child(1)').addClass('hideleft');
             } else if (this.options.effect == 'scaleUp') {
-                 tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hidescaleup');
+                tab_content = this.$elem.find('.' + this.options.target_class).not(':first').not(':nth-child(1)').addClass('hidescaleup');
             } else if (this.options.effect == 'flip') {
-                 tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hideflip');
+                tab_content = this.$elem.find('.' + this.options.target_class).not(':first').not(':nth-child(1)').addClass('hideflip');
             }
 
             var firstdiv = this.$elem.find('#tabs_container');
             var firstdivheight = firstdiv.find('div:first').height();
 
-            var alldivs = this.$elem.find('div:first').find('div');
+            var alldivs = this.$elem.find('div:first').find('.' + this.options.target_class);
 
             alldivs.css({'position': 'absolute','top':'40px'});
 
@@ -85,16 +86,8 @@
 
                 firstdiv.css('height',thisdivwidth+'px');
 
-                
-
-
             });
 
-           
-
-
-         
-            
         },
 
         yourOtherFunction: function(el, options) {
@@ -111,5 +104,3 @@
     };
 
 })( jQuery, window, document );
-
-
