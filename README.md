@@ -19,7 +19,7 @@ Firstly include jQuery and the tabulous.css and tabulous.js files. Place these b
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="tabulous.js"></script>
 	<script type="text/javascript" src="js.js"></script>
-
+					
 
 ##### Create the tabs
 
@@ -40,7 +40,7 @@ Firstly include jQuery and the tabulous.css and tabulous.js files. Place these b
 			<div id="tabs-3">
 				    <!--tab content-->
 			</div>
-		</div><!--End tabs container-->
+		</div><!--End tabs container-->	
   </div><!--End tabs-->
 `````
 ##### Initiate the plugin
@@ -49,21 +49,21 @@ Once you have created your tabs you will need to initiate the plugin.
 
 At its most basic level you can initiate the plugin like:
 
-`````
+`````					
 	$(document).ready(function ($) {
 
-    $('#tabs').tabulous();
+    $('#tabs').tabulous();  
 
 });
 `````
-
+					
 
 If you want to initiate the plugin with options then you can do so like:
 
 `````
 $('#tabs').tabulous({
       effect: 'scale'
-    });
+    });	
 `````
 
 #### ..:: Options
@@ -84,8 +84,8 @@ $('#tabs').tabulous({
 									<td>The effect to use for the transition</td>
 									<td>scale / slideLeft / scaleUp / flip</td>
 								</tr>
+							
 
-
-
+								
 							</tbody>
 						</table>
