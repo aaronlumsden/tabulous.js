@@ -17,24 +17,8 @@ $(document).ready(function($) {
     	effect: 'flip'
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    $('#tabs5').tabulous({
+        effect: 'flip',
+        tabs: $("#tabs5-switcher > li > a")
+    });
 });

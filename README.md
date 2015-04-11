@@ -19,7 +19,6 @@ Firstly include jQuery and the tabulous.css and tabulous.js files. Place these b
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="tabulous.js"></script>
 	<script type="text/javascript" src="js.js"></script>
-					
 
 ##### Create the tabs
 
@@ -49,43 +48,56 @@ Once you have created your tabs you will need to initiate the plugin.
 
 At its most basic level you can initiate the plugin like:
 
-`````					
+`````
 	$(document).ready(function ($) {
 
-    $('#tabs').tabulous();  
+    $('#tabs').tabulous();
 
 });
 `````
-					
+
 
 If you want to initiate the plugin with options then you can do so like:
 
 `````
 $('#tabs').tabulous({
       effect: 'scale'
-    });	
+    });
+`````
+
+
+To specify custom elements, that will acts as tabs switchers, use 'tabs' option
+
+`````
+$('#tabs').tabulous({
+      effect: 'scale',
+      tabs: $("#tabs-switcher > li > a")
+    });
 `````
 
 #### ..:: Options
 
 <table>
-  						<thead>
-								<tr>
-									<th>Variable</th>
-									<th>Default Value</th>
-									<th>Description</th>
-									<th>Valid Options</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>effect</td>
-									<td>scale</td>
-									<td>The effect to use for the transition</td>
-									<td>scale / slideLeft / scaleUp / flip</td>
-								</tr>
-							
-
-								
-							</tbody>
-						</table>
+	<thead>
+		<tr>
+			<th>Variable</th>
+			<th>Default Value</th>
+			<th>Description</th>
+			<th>Valid Options</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>effect</td>
+			<td>scale</td>
+			<td>The effect to use for the transition</td>
+			<td>scale / slideLeft / scaleUp / flip</td>
+		</tr>
+		<tr>
+			<td>tabs</td>
+			<td>undefined</td>
+			<td>Elements, that will act as tabs switchers</td>
+			<td>Any valid jQuery elements</td>
+		</tr>
+	</tbody>
+</table>

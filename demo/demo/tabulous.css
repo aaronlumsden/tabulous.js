@@ -1,7 +1,4 @@
-html{
-	background: rgb(101, 92, 137);
-		font-family: "Lato", sans-serif;
-}
+/* Don't forget to include a CSS reset file otherwise it might look a little bit strange*/
 a:active,a:focus {
 	outline: expression(hideFocus='true');
 }
@@ -38,14 +35,14 @@ p {
 	background: rgb(78, 74, 99);
 }
 
-#tabs_container {
-	padding: 40px;
+.tabs_container {
+	padding: 20px 0;
 	overflow: hidden;
 	position: relative;
 	background: white;
 }
 
-#tabs_container div {
+.tabs_container div {
 	margin-right: 40px;
 }
 
@@ -199,8 +196,8 @@ p {
 }
 
 .tabulous_active {
-	background: white !important;
-	color: #655c89 !important;
+	background: white;
+	color: #655c89;
 }
 
 .tabulousclear {
