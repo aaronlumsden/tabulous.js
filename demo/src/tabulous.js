@@ -47,15 +47,14 @@
             tabsContainer.css('height', tabsContainer.find('div:first').height()+'px');
             firstchild.addClass('tabulous_active');
 
-            if (this.options.effect == 'scale') {
-             tab_content = elem.find('div').not(':first').not(':nth-child(1)').addClass('hidescale');
-            } else if (this.options.effect == 'slideLeft') {
-                 tab_content = elem.find('div').not(':first').not(':nth-child(1)').addClass('hideleft');
-            } else if (this.options.effect == 'scaleUp') {
-                 tab_content = elem.find('div').not(':first').not(':nth-child(1)').addClass('hidescaleup');
-            } else if (this.options.effect == 'flip') {
-                 tab_content = elem.find('div').not(':first').not(':nth-child(1)').addClass('hideflip');
-            }
+            var effectHideClasses = {
+                scale: 'hidescale',
+                slideLeft: 'hideLeft',
+                scaleUp: 'hidescaleup',
+                flip: 'hideflip'
+            };
+            allDivs.not(":first").addClass(effectHideClasses[this.options.effect]);
+
 
             allLinks.bind('click', {myOptions: this.options}, function(e) {
                 e.preventDefault();
@@ -75,7 +74,7 @@
                 var effect = e.data.myOptions.effect;
                 if (effect == 'scale') {
                     allDivs.removeClass('showscale').addClass('hidescale');
-                    currentDiv.addClass('showscale');
+                    currentDiv.removeClass('hidescale').addClass('showscale');
                 } else if (effect == 'slideLeft') {
                     allDivs.removeClass('showleft').addClass('hideleft');
                     currentDiv.addClass('showleft');
