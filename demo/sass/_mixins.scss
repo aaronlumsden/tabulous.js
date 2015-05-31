@@ -1,0 +1,48 @@
+
+// Created on : 30 mai 2015, 21:38:27
+// Author     : Steeve Lefebvre <webstartup.sl at gmail.com>
+
+// -----------------------------------------------------------------------------
+// Mixins
+// -----------------------------------------------------------------------------
+
+// Préfixer une règle css
+@mixin css-rule($rule, $valeurs, $prefixes:null){
+    @if $prefixes != null{
+        @each $prefixe in $prefixes {
+            -#{$prefixe}-#{$rule}: $valeurs;
+        }
+        #{$rule}: $valeurs;
+    }@else {
+        #{$rule}: $valeurs;
+    }
+}
+
+// Import google fonts
+@mixin google-font($noms...) {
+    $url: "http://fonts.googleapis.com/css?family=";
+    $nb: 0;
+    @each $nom in $noms {
+        $nb: $nb + 1;
+        $nb_mots: 0;
+        @each $word in $nom {
+            $nb_mots: $nb_mots + 1;
+            $url: $url + $word;
+            @if $nb_mots < length($nom) {
+                $url: $url + "+";
+            }
+        }
+        @if $nb < length($noms) {
+            $url: $url + "|";
+        }
+    }
+    @import url($url);
+}
+
+// Opacité
+@mixin opacity($valeur){
+    $IE: $valeur * 100;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $IE + ")";
+    filter: alpha(opacity = $IE);
+    opacity: $valeur;
+}
