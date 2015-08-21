@@ -31,19 +31,19 @@
             var lastchild = this.$elem.find('li:last-child').after('<span class="tabulousclear"></span>');
 
             if (this.options.effect == 'scale') {
-             tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hidescale');
+             tab_content = this.$elem.children('div').children('div').not(':first').not(':nth-child(1)').addClass('hidescale');
             } else if (this.options.effect == 'slideLeft') {
-                 tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hideleft');
+                 tab_content = this.$elem.children('div').children('div').not(':first').not(':nth-child(1)').addClass('hideleft');
             } else if (this.options.effect == 'scaleUp') {
-                 tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hidescaleup');
+              tab_content = this.$enlem.children('div').children('div').not(':first').not(':nth-child(1)').addClass('hidescaleup');
             } else if (this.options.effect == 'flip') {
-                 tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hideflip');
+                 tab_content = this.$elem.children('div').children('div').not(':first').not(':nth-child(1)').addClass('hideflip');
             }
 
             var firstdiv = this.$elem.find('#tabs_container');
             var firstdivheight = firstdiv.find('div:first').height();
 
-            var alldivs = this.$elem.find('div:first').find('div');
+            var alldivs = this.$elem.children('div:first').children('div');
 
             alldivs.css({'position': 'absolute','top':'40px'});
 
