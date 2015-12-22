@@ -40,7 +40,7 @@
                  tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hideflip');
             }
 
-            var firstdiv = this.$elem.find('#tabs_container');
+            var firstdiv = this.$elem.find('.tabs-container');
             var firstdivheight = firstdiv.find('div:first').height();
 
             var alldivs = this.$elem.find('div:first').find('div');
@@ -49,7 +49,7 @@
 
             firstdiv.css('height',firstdivheight+'px');
 
-            firstchild.addClass('tabulous_active');
+            firstchild.addClass('tabulous-active');
 
             links.bind('click', {myOptions: this.options}, function(e) {
                 e.preventDefault();
@@ -64,22 +64,22 @@
 
                 firstdiv.addClass('transition');
 
-                links.removeClass('tabulous_active');
-                mythis.addClass('tabulous_active');
+                links.removeClass('tabulous-active');
+                mythis.addClass('tabulous-active');
                 thisdivwidth = thisform.find('div'+thislink).height();
 
                 if (effect == 'scale') {
-                    alldivs.removeClass('showscale').addClass('make_transist').addClass('hidescale');
-                    thisform.find('div'+thislink).addClass('make_transist').addClass('showscale');
+                    alldivs.removeClass('showscale').addClass('make-transist').addClass('hidescale');
+                    thisform.find('div'+thislink).addClass('make-transist').addClass('showscale');
                 } else if (effect == 'slideLeft') {
-                    alldivs.removeClass('showleft').addClass('make_transist').addClass('hideleft');
-                    thisform.find('div'+thislink).addClass('make_transist').addClass('showleft');
+                    alldivs.removeClass('showleft').addClass('make-transist').addClass('hideleft');
+                    thisform.find('div'+thislink).addClass('make-transist').addClass('showleft');
                 } else if (effect == 'scaleUp') {
-                    alldivs.removeClass('showscaleup').addClass('make_transist').addClass('hidescaleup');
-                    thisform.find('div'+thislink).addClass('make_transist').addClass('showscaleup');
+                    alldivs.removeClass('showscaleup').addClass('make-transist').addClass('hidescaleup');
+                    thisform.find('div'+thislink).addClass('make-transist').addClass('showscaleup');
                 } else if (effect == 'flip') {
-                    alldivs.removeClass('showflip').addClass('make_transist').addClass('hideflip');
-                    thisform.find('div'+thislink).addClass('make_transist').addClass('showflip');
+                    alldivs.removeClass('showflip').addClass('make-transist').addClass('hideflip');
+                    thisform.find('div'+thislink).addClass('make-transist').addClass('showflip');
                 }
 
 
