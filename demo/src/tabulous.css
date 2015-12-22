@@ -78,6 +78,7 @@ p {
 	filter: alpha(opacity=0);
 	filter: alpha(opacity=0);
 	opacity: 0;
+	display: none;
 }
 
 .showscale {
@@ -89,6 +90,7 @@ p {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 	filter: alpha(opacity=100);
 	opacity: 1;
+	display: block;
 
 	-webkit-transition-delay: .3s;
 	-moz-transition-delay: .3s;
