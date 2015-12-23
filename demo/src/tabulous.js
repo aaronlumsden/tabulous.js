@@ -3,15 +3,20 @@
  * Original author: @aaronlumsden
  * Further changes, comments: @aaronlumsden
  * Licensed under the MIT license
+ *
+ * Modifications:
+ *
+ * 2015.04.11 (by AntonAL)
+ * Added new option 'tabs', that specifies jquery-elements, acting as tabs switchers. This is useful for tabs, located in random places of the document.
+ * Slightly improved implementation, that is now w3c-standards compilant.
  */
-;(function ( $, window, document, undefined ) {
+(function ( $, window, document, undefined ) {
 
     var pluginName = "tabulous",
         defaults = {
-            effect: 'scale'
+            effect: 'scale',
+            tabs: undefined
         };
-
-       // $('<style>body { background-color: red; color: white; }</style>').appendTo('head');
 
     function Plugin( element, options ) {
         this.element = element;
@@ -26,75 +31,63 @@
 
         init: function() {
 
-            var links = this.$elem.find('a');
-            var firstchild = this.$elem.find('li:first-child').find('a');
-            var lastchild = this.$elem.find('li:last-child').after('<span class="tabulousclear"></span>');
+            var elem = this.$elem;
 
-            if (this.options.effect == 'scale') {
-             tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hidescale');
-            } else if (this.options.effect == 'slideLeft') {
-                 tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hideleft');
-            } else if (this.options.effect == 'scaleUp') {
-                 tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hidescaleup');
-            } else if (this.options.effect == 'flip') {
-                 tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hideflip');
-            }
+            var allLinks = (this.options.tabs) ? this.options.tabs : elem.find("a");
 
-            var firstdiv = this.$elem.find('#tabs_container');
-            var firstdivheight = firstdiv.find('div:first').height();
+            var allDivs = allLinks.map(function(){
+                return $($(this).attr("href"))[0];
+            });
+            allDivs.css({'position': 'absolute', 'top':'20px'});
 
-            var alldivs = this.$elem.find('div:first').find('div');
+            var firstchild = elem.find('li:first-child').find('a');
+            var lastchild = elem.find('li:last-child').after('<span class="tabulousclear"></span>');
 
-            alldivs.css({'position': 'absolute','top':'40px'});
-
-            firstdiv.css('height',firstdivheight+'px');
-
+            var tabsContainer = elem.find('.tabs_container');
+            tabsContainer.css('height', tabsContainer.find('div:first').height()+'px');
             firstchild.addClass('tabulous_active');
 
-            links.bind('click', {myOptions: this.options}, function(e) {
+            var effectHideClasses = {
+                scale: 'hidescale',
+                slideLeft: 'hideLeft',
+                scaleUp: 'hidescaleup',
+                flip: 'hideflip'
+            };
+            allDivs.not(":first").addClass(effectHideClasses[this.options.effect]);
+
+
+            allLinks.bind('click', {myOptions: this.options}, function(e) {
                 e.preventDefault();
 
-                var $options = e.data.myOptions;
-                var effect = $options.effect;
+                var currentLink = $(this);
 
-                var mythis = $(this);
-                var thisform = mythis.parent().parent().parent();
-                var thislink = mythis.attr('href');
+                tabsContainer.addClass('transition');
 
+                allLinks.removeClass('tabulous_active');
+                currentLink.addClass('tabulous_active');
 
-                firstdiv.addClass('transition');
+                var currentDiv = $(currentLink.attr('href'));
 
-                links.removeClass('tabulous_active');
-                mythis.addClass('tabulous_active');
-                thisdivwidth = thisform.find('div'+thislink).height();
+                allDivs.addClass('make_transist');
+                currentDiv.addClass('make_transist');
 
+                var effect = e.data.myOptions.effect;
                 if (effect == 'scale') {
-                    alldivs.removeClass('showscale').addClass('make_transist').addClass('hidescale');
-                    thisform.find('div'+thislink).addClass('make_transist').addClass('showscale');
+                    allDivs.removeClass('showscale').addClass('hidescale');
+                    currentDiv.removeClass('hidescale').addClass('showscale');
                 } else if (effect == 'slideLeft') {
-                    alldivs.removeClass('showleft').addClass('make_transist').addClass('hideleft');
-                    thisform.find('div'+thislink).addClass('make_transist').addClass('showleft');
+                    allDivs.removeClass('showleft').addClass('hideleft');
+                    currentDiv.addClass('showleft');
                 } else if (effect == 'scaleUp') {
-                    alldivs.removeClass('showscaleup').addClass('make_transist').addClass('hidescaleup');
-                    thisform.find('div'+thislink).addClass('make_transist').addClass('showscaleup');
+                    allDivs.removeClass('showscaleup').addClass('hidescaleup');
+                    currentDiv.addClass('showscaleup');
                 } else if (effect == 'flip') {
-                    alldivs.removeClass('showflip').addClass('make_transist').addClass('hideflip');
-                    thisform.find('div'+thislink).addClass('make_transist').addClass('showflip');
+                    allDivs.removeClass('showflip').addClass('hideflip');
+                    currentDiv.addClass('showflip');
                 }
 
-
-                firstdiv.css('height',thisdivwidth+'px');
-
-                
-
-
+                tabsContainer.css('height', currentDiv.height()+'px');
             });
-
-           
-
-
-         
-            
         },
 
         yourOtherFunction: function(el, options) {
@@ -111,5 +104,3 @@
     };
 
 })( jQuery, window, document );
-
-
