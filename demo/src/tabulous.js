@@ -40,14 +40,14 @@
                  tab_content = this.$elem.find('div').not(':first').not(':nth-child(1)').addClass('hideflip');
             }
 
-            var firstdiv = this.$elem.find('#tabs_container');
-            var firstdivheight = firstdiv.find('div:first').height();
+            var firstdiv = this.$elem.find('.tabs_container');
+            var firstdivheight = firstdiv.find('div:first').css('height');
 
             var alldivs = this.$elem.find('div:first').find('div');
 
             alldivs.css({'position': 'absolute','top':'40px'});
 
-            firstdiv.css('height',firstdivheight+'px');
+            firstdiv.css('height',firstdivheight);
 
             firstchild.addClass('tabulous_active');
 
@@ -66,7 +66,7 @@
 
                 links.removeClass('tabulous_active');
                 mythis.addClass('tabulous_active');
-                thisdivwidth = thisform.find('div'+thislink).height();
+                thisdivwidth = thisform.find('div'+thislink).css('height');
 
                 if (effect == 'scale') {
                     alldivs.removeClass('showscale').addClass('make_transist').addClass('hidescale');
@@ -82,11 +82,7 @@
                     thisform.find('div'+thislink).addClass('make_transist').addClass('showflip');
                 }
 
-
-                firstdiv.css('height',thisdivwidth+'px');
-
-                
-
+                firstdiv.css('height',thisdivwidth);
 
             });
 
