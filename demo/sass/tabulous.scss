@@ -1,0 +1,124 @@
+
+// Syntax : http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+
+// Mixins
+@import "_mixins.scss";
+
+// Variables
+@import "_vars.scss";
+
+// sCss
+@include google-font($lato_font);
+
+html{
+    background: $bg_color;
+    font-family: $lato_font, sans-serif;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+#wrapper {
+    width: $warpper_width;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+#tabs, #tabs2, #tabs3, #tabs4, #tabs5 {
+    width: $tabs_width;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    li{
+        float: left;
+        margin-right: 2px;
+        a{
+            display: block;
+            padding: 17px 30px;
+            background: $tabs_li_bg;
+            text-decoration: none;
+            color: $tabs_li_a_color;
+            &:hover{
+                background: $tabs_li_bg_hover;
+            }
+            &:active, &:focus{
+                outline: expression(hideFocus = 'true');
+            }
+        }
+    }
+}
+
+#tabs_container {
+    padding: 40px;
+    overflow: hidden;
+    position: relative;
+    background: $tabs_active_bg;
+    div {
+        margin-right: 40px;
+    }
+}
+
+.tabulous_active {
+    background: $tabs_active_bg;
+    color: $tabs_active_color;
+}
+
+.tabulousclear {
+    display: block;
+    clear: both;
+}
+
+.transition {
+    @include css-rule(transition, all .3s ease-in-out, $full_pfx);
+    @include css-rule(transition-delay, all .3s ease-in-out, $full_pfx);
+}
+
+.make_transist {
+    @include css-rule(transition, all .3s ease-in-out, $full_pfx);
+}
+
+.hidescale {
+    @include css-rule(transform, scale(0.9), $full_pfx);
+    @include opacity(0);
+}
+
+.showscale {
+    @include css-rule(transform, scale(1), $full_pfx);
+    @include css-rule(transition-delay, .3s, $full_pfx);
+    @include opacity(1);
+}
+
+.hideleft {
+    @include css-rule(transform, translateX(-100%), $full_pfx);
+    @include opacity(0);
+}
+
+.showleft {
+    @include css-rule(transform, translateX(0px), $full_pfx);
+    @include css-rule(transition-delay, .3s, $full_pfx);
+    @include opacity(1);
+}
+
+.hidescaleup {
+    @include css-rule(transform, scale(1.1), $full_pfx);
+    @include opacity(0);
+}
+
+.showscaleup {
+    @include css-rule(transform, scale(1), $full_pfx);
+    @include css-rule(transition-delay, .3s, $full_pfx);
+    @include opacity(1);
+}
+
+.hideflip {
+    @include css-rule(transform, rotatey(-90deg) scale(1.1), $full_pfx);
+    @include css-rule(transform-origin, 50% 50%, $full_pfx);
+    @include opacity(0);
+}
+
+.showflip {
+    @include css-rule(transform, rotatey(0deg) scale(1), $full_pfx);
+    @include css-rule(transition-delay, .3s, $full_pfx);
+    @include css-rule(transform-origin, 50% 50%, $full_pfx);
+    @include opacity(1);
+}
